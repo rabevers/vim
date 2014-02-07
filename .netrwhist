@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/richard/pdftest'
+let g:netrw_dirhist_2='/home/richard/Documents/prive/skeleton/ZendSkeletonApplication/module/Application/view/application/index'
+let g:netrw_dirhist_3='/home/richard/Documents/prive/skeleton/ZendSkeletonApplication/module/Application/view/application'
+let g:netrw_dirhist_4='/home/richard/Documents/prive/skeleton/ZendSkeletonApplication/module/Application/view'
+let g:netrw_dirhist_5='/home/richard/repos/scrum/application/vendor/giantpenguin/library/Gp/Test.php'
+let g:netrw_dirhist_6='/home/richard/public_html'
