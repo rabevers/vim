@@ -6,14 +6,19 @@ execute pathogen#infect()
 Bundle 'gmarik/vundle'
 Bundle 'https://github.com/scrooloose/syntastic.git'
 Bundle 'https://github.com/scrooloose/nerdtree.git'
+Bundle 'https://github.com/ervandew/supertab.git'
+Bundle 'shawncplus/phpcomplete.vim'
 
 filetype plugin indent on
 
 syntax on
 :set hlsearch
+:set tags=./php.tags,php.tags
 
 :nmap <C-L> :set invnumber<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
 :nmap <C-n> :NERDTreeToggle<CR> " Open and close the NERD tree file browser
+:nmap <C-Right> :bn<CR> " Move to next buffer
+:nmap <C-Left> :bp<CR> " Move to previous buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 colorscheme candystripe
@@ -22,6 +27,7 @@ colorscheme candystripe
 set statusline+=%#warningmsg#
 
 let g:NERDTreeDirArrows=0
+let g:SuperTabDefaultCompletionType = ""
 
 " size of a hard tabstop
 set tabstop=4
