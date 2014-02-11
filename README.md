@@ -8,4 +8,3 @@ Todo
 - Search project tree for strings in files
 - Automatic tag generation for auto complete
 - Show a list with parse errors if they occur, now only the line is highlighted
-- 
