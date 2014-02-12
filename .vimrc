@@ -1,5 +1,6 @@
 filetype off
 set rtp+=~/.vim/bundle/vundle/
+set nocp    " 'compatible' is not set
 call vundle#rc()
 execute pathogen#infect()
 
@@ -17,8 +18,11 @@ syntax on
 
 :nmap <C-L> :set invnumber<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
 :nmap <C-n> :NERDTreeToggle<CR> " Open and close the NERD tree file browser
-:nmap <C-Right> :bn<CR> " Move to next buffer
-:nmap <C-Left> :bp<CR> " Move to previous buffer
+":nmap <A-Right> :bn<CR> " Move to next buffer
+":nmap <A-Left> :bp<CR> " Move to previous buffer
+inoremap <C-Space> <C-x><C-o> " remap CTRL-x CTRL-o to CTRL-SPACE for auto complete
+inoremap <C-@> <C-Space>
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 colorscheme candystripe
@@ -27,7 +31,7 @@ colorscheme candystripe
 set statusline+=%#warningmsg#
 
 let g:NERDTreeDirArrows=0
-let g:SuperTabDefaultCompletionType = ""
+"let g:SuperTabDefaultCompletionType = ""
 
 " size of a hard tabstop
 set tabstop=4
