@@ -16,6 +16,11 @@ syntax on
 :set hlsearch
 :set tags=./php.tags,php.tags
 
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
 :nmap <C-L> :set invnumber<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
 :nmap <C-n> :NERDTreeToggle<CR> " Open and close the NERD tree file browser
 ":nmap <A-Right> :bn<CR> " Move to next buffer
