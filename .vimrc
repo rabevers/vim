@@ -7,19 +7,22 @@ execute pathogen#infect()
 Bundle 'gmarik/vundle'
 Bundle 'https://github.com/scrooloose/syntastic.git'
 Bundle 'https://github.com/scrooloose/nerdtree.git'
-Bundle 'https://github.com/ervandew/supertab.git'
+"Bundle 'https://github.com/ervandew/supertab.git'
 Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'https://github.com/wavded/vim-stylus.git'
+Bundle 'https://github.com/xolox/vim-misc.git'
+Bundle 'https://github.com/xolox/vim-easytags.git'
 
 filetype plugin indent on
 
 syntax on
 :set hlsearch
-:set tags=./php.tags,php.tags
+:set tags=./.php.tags,php.tags
 
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 :nmap <C-L> :set invnumber<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
 :nmap <C-n> :NERDTreeToggle<CR> " Open and close the NERD tree file browser
