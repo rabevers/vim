@@ -12,6 +12,8 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'https://github.com/wavded/vim-stylus.git'
 Bundle 'https://github.com/xolox/vim-misc.git'
 Bundle 'https://github.com/xolox/vim-easytags.git'
+Bundle 'https://github.com/gerw/vim-HiLinkTrace.git'
+Bundle 'mustache/vim-mustache-handlebars'
 
 filetype plugin indent on
 
@@ -33,28 +35,39 @@ inoremap <C-@> <C-Space>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-colorscheme candystripe
-
 " Syntastic options
 set statusline+=%#warningmsg#
 
 let g:NERDTreeDirArrows=0
 "let g:SuperTabDefaultCompletionType = ""
 
-" size of a hard tabstop
-set tabstop=4
+set tabstop=4               " size of a hard tabstop
+set shiftwidth=4            " size of an "indent"
+set softtabstop =4          " a combination of spaces and tabs are used to simulate tab stops at a width
+                            " other than the (hard)tabstop
+set smarttab                "make "tab" insert indents instead of tabs at the beginning of a line
+set expandtab               " always uses spaces instead of tab characters
 
-" size of an "indent"
-set shiftwidth=4
-" a combination of spaces and tabs are used to simulate tab stops at a width
-" other than the (hard)tabstop
-set softtabstop=4
+:set pastetoggle=<f5>
 
-"make "tab" insert indents instead of tabs at the beginning of a line
-set smarttab
+set t_Co=256
+colorscheme candystripe
 
-" always uses spaces instead of tab characters
-set expandtab
+" Function to create parent directories on saving a file
+" http://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
 
 " http://joncairns.com/2012/05/using-vim-as-a-php-ide/#highlighting
 " https://github.com/scrooloose/syntastic/blob/master/doc/syntastic.txt
