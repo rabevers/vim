@@ -26,7 +26,22 @@ syntax on
 "autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-:nmap <C-L> :set invnumber<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
+function! ToggleLineNumbering()
+    if v:version < 703
+        set invnumber
+    else
+        if &nu == 1
+            set rnu
+        elseif &rnu == 1
+            set nornu
+        else
+            set nu
+        endif
+    endif
+endfunction
+
+:nmap <C-L> :call ToggleLineNumbering()<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
+":nmap <C-L> :set invnumber<CR> " Create a mapping to show/hide line numbers by pressing <CTRL>+L
 :nmap <C-n> :NERDTreeToggle<CR> " Open and close the NERD tree file browser
 ":nmap <A-Right> :bn<CR> " Move to next buffer
 ":nmap <A-Left> :bp<CR> " Move to previous buffer
