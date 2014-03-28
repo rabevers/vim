@@ -8,18 +8,25 @@ Bundle 'gmarik/vundle'
 Bundle 'https://github.com/scrooloose/syntastic.git'
 Bundle 'https://github.com/scrooloose/nerdtree.git'
 "Bundle 'https://github.com/ervandew/supertab.git'
-Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'https://github.com/wavded/vim-stylus.git'
-Bundle 'https://github.com/xolox/vim-misc.git'
-Bundle 'https://github.com/xolox/vim-easytags.git'
-Bundle 'https://github.com/gerw/vim-HiLinkTrace.git'
-Bundle 'mustache/vim-mustache-handlebars'
+"Bundle 'https://github.com/xolox/vim-misc.git'
+"Bundle 'https://github.com/xolox/vim-easytags.git'
+"Bundle 'https://github.com/gerw/vim-HiLinkTrace.git'
+"Bundle 'mustache/vim-mustache-handlebars'
 
 filetype plugin indent on
 
 syntax on
 :set hlsearch
-:set tags=./.php.tags,php.tags
+
+" Auto complete stuff
+set tags=.php.tags,php.tags
+" http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE 
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"  
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 "autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
