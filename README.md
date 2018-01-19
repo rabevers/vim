@@ -5,6 +5,10 @@ Most of my coding is web development with php, so that will be the main focus of
 
 use git submodule update --init to initialize the vundle package
 
+When checking out, checkout to the .vim directory
+Open vim and execute :PluginInstall [see the vundle docs](https://github.com/VundleVim/Vundle.vim)
+
+
 Todo
 ===
 - Search project tree for strings in files
